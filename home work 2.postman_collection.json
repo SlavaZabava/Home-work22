@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "d1f90279-3f11-4775-bf09-3ed361d13532",
+		"name": "home work 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27858370",
+		"_collection_link": "https://www.postman.com/winter-shadow-242638/workspace/practice-17-03/collection/27858370-d1f90279-3f11-4775-bf09-3ed361d13532?action=share&creator=27858370&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "auth signin users",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"slavaflash8@gmail.com\",\n  \"password\": \"3v43X1KM1iKG7aN\",\n  \"remember\": \"slava\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{my_url}}/auth/signin",
+					"protocol": "https",
+					"host": [
+						"{{my_url}}"
+					],
+					"path": [
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add car Ford Fusion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"car_id\", jsonData.data.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"carBrandId\": 3,\n  \"carModelId\": 13,\n  \"mileage\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{my_url}}/cars",
+					"protocol": "https",
+					"host": [
+						"{{my_url}}"
+					],
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add car Audy A6",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"carBrandId\": 1,\n  \"carModelId\": 4,\n  \"mileage\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{my_url}}/cars/{{car_id}}",
+					"protocol": "https",
+					"host": [
+						"{{my_url}}"
+					],
+					"path": [
+						"cars",
+						"{{car_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update car",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{my_url}}/cars/{{car_id}}",
+					"protocol": "https",
+					"host": [
+						"{{my_url}}"
+					],
+					"path": [
+						"cars",
+						"{{car_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add expenses Ford Fusion",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"carId\": 3,\n  \"reportedAt\": \"2021-05-17\",\n  \"mileage\": 100,\n  \"liters\": 11,\n  \"totalCost\": 11,\n  \"forceMileage\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{my_url}}/cars/{{car_id}}",
+					"protocol": "https",
+					"host": [
+						"{{my_url}}"
+					],
+					"path": [
+						"cars",
+						"{{car_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delet car Ford Fusion",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{my_url}}/cars/{{car_id}}",
+					"protocol": "https",
+					"host": [
+						"{{my_url}}"
+					],
+					"path": [
+						"cars",
+						"{{car_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delet car Ford Fusion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{my_url}}/cars/{{car_id}}",
+					"protocol": "https",
+					"host": [
+						"{{my_url}}"
+					],
+					"path": [
+						"cars",
+						"{{car_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{my_url}}/auth/logout",
+					"protocol": "https",
+					"host": [
+						"{{my_url}}"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"var moment= require ('moment');",
+					"pm.collectionVariables.set('tmp_current_date', moment().format((\"YYYY-MM-DD\")));",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "my_url",
+			"value": "qauto2.forstudy.space/api",
+			"type": "string"
+		},
+		{
+			"key": "car_id",
+			"value": ""
+		},
+		{
+			"key": "tmp_current_date",
+			"value": ""
+		}
+	]
+}
