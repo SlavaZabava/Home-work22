@@ -32,7 +32,7 @@
 					"path": [
 						"api",
 						"auth",
-						"signin"
+						"sign-in"
 					]
 				}
 			},
